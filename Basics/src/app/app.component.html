@@ -1,0 +1,26 @@
+<ng-template [ngIf]="blueClass">
+  <p>Button is blue.</p>
+</ng-template>
+
+<button (click)="blueClass = !blueClass" [ngClass]="{ blue:blueClass, red:blueClass }"
+  [ngStyle]="{'font-size.px': fontSize, 'border-radius.px': border, 'color': red}">Change</button>
+
+<hr>
+
+<input (keyup)="changeImage($event)" [value]="imgURL">
+
+<app-post *ngFor="let image of images;let i = index" [img]="image" (imgSelected)="logImg($event)">
+  <p>{{ i }}Some caption</p>
+</app-post>
+
+<p class="text-3xl font-bold underline">Hello {{ name | titlecase }}!</p>
+<p>Hello {{ getName() }}!</p>
+<p>{{ 15 + 13 }}</p>
+
+<p>{{ currentDate | date: 'dd/MM/YYYY' }}</p>
+
+<p>{{ cost | currency: 'VND'}}</p>
+
+<p>{{ temperature | number: '1.3-5' }}</p>
+
+<pre>{{ pizza | json }}</pre>
